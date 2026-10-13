@@ -119,13 +119,7 @@ class OwnerController {
 			return "owners/findOwners";
 		}
 
-		if (ownersResults.getTotalElements() == 1) {
-			// 1 owner found
-			owner = ownersResults.iterator().next();
-			return "redirect:/owners/" + owner.getId();
-		}
-
-		// multiple owners found
+		// show the list even for a single match so users can confirm the owner
 		return addPaginationModel(page, model, ownersResults);
 	}
 
